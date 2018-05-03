@@ -46,7 +46,7 @@ class BackpackTest < MiniTest::Test
   ###### TESTS ABOUT GYM SHOES...
 
   def test_gym_shoes_mondays_thursdays
-    ['monday', 'thursday'].each do |day|
+    ['tuesday', 'thursday'].each do |day|
       backpack = build(:backpack, day_of_week: day)
       assert(backpack.items.include?('gym shoes'))
     end
@@ -55,16 +55,16 @@ class BackpackTest < MiniTest::Test
 
   ##### TESTS ABOUT PRINTING THE LIST #####
   def test_that_backpack_prints_correctly
-    backpack = build(:backpack, day_of_week: 'monday', weather: 'sunny')
+    backpack = build(:backpack, day_of_week: 'tuesday', weather: 'sunny')
     expected =
-"Melinda, here's your packing list!
-Day: monday, Weather: sunny
+    "Melinda, here's your packing list!
+Day: tuesday, Weather: sunny
 
 - pants
 - shirt
 - gym shoes
 - packed lunch"
-    assert_equal(expected, backpack.my_func)
+    assert_equal(expected, backpack.print_summary_list)
   end
 
 end
